@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KRISHAN LIVE</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:#07070b;color:#fff}
+body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 15% 0%,#30106a33,transparent 35%),radial-gradient(circle at 90% 20%,#7b16ff22,transparent 30%);pointer-events:none}
+header{position:sticky;top:0;z-index:5;background:#09090dcc;backdrop-filter:blur(14px);border-bottom:1px solid #ffffff10}
+.nav{max-width:1100px;margin:auto;padding:16px 20px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:900;letter-spacing:1px;font-size:22px}.brand span{color:#a855f7}
+.btn{border:0;border-radius:12px;padding:11px 16px;background:linear-gradient(135deg,#7c3aed,#a855f7);color:white;font-weight:800;cursor:pointer}.ghost{background:#ffffff0b;border:1px solid #ffffff12}
+main{max-width:1100px;margin:auto;padding:45px 20px}.hero{text-align:center;padding:35px 0 25px}.badge{display:inline-block;padding:7px 12px;border-radius:999px;background:#a855f71a;color:#d8b4fe;border:1px solid #a855f733;font-size:13px}.hero h1{font-size:clamp(38px,8vw,70px);margin:16px 0 8px}.hero h1 span{color:#a855f7}.hero p{color:#a1a1aa;max-width:650px;margin:auto;line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}.card{background:linear-gradient(180deg,#12121a,#0d0d12);border:1px solid #ffffff10;border-radius:20px;padding:20px;box-shadow:0 15px 40px #0005}.tag{color:#c084fc;font-size:12px;font-weight:800}.card h3{margin:10px 0}.price{font-size:28px;font-weight:900;margin:15px 0}.muted{color:#92929d;font-size:13px}.buy{width:100%;margin-top:12px}
+.pay{margin-top:38px;display:grid;grid-template-columns:1fr 1fr;gap:20px}.box{background:#101017;border:1px solid #ffffff10;border-radius:20px;padding:24px}.qr{width:210px;height:210px;display:block;margin:12px auto;border-radius:14px;background:#fff;padding:8px;object-fit:contain}.tg{display:block;text-align:center;text-decoration:none;color:#fff}
+footer{text-align:center;color:#666;padding:35px 20px}.modal{position:fixed;inset:0;background:#000b;display:none;place-items:center;z-index:20;padding:20px}.modal.open{display:grid}.modalbox{width:min(420px,100%);background:#111118;border:1px solid #ffffff15;border-radius:22px;padding:25px}.modal input{width:100%;padding:13px;margin:7px 0;background:#09090d;border:1px solid #ffffff14;border-radius:10px;color:#fff}.close{float:right;background:none;color:#aaa;border:0;font-size:22px}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.pay{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="nav"><div class="brand">KRISHAN <span>LIVE</span></div><button class="btn ghost" onclick="openLogin()">Login</button></div></header>
+
+<main>
+<section class="hero">
+<div class="badge">PREMIUM DIGITAL STORE</div>
+<h1>Welcome to <span>Krishan Live</span></h1>
+<p>Fast, simple and secure digital products. अपना प्रोडक्ट चुनें और नीचे दिए गए payment options से भुगतान करें।</p>
+</section>
+
+<section class="grid">
+<article class="card"><div class="tag">FREE FIRE</div><h3>Free Fire Diamond</h3><div class="muted">Digital top-up package</div><div class="price">₹99</div><button class="btn buy" onclick="buy('Free Fire Diamond','₹99')">Buy Now</button></article>
+<article class="card"><div class="tag">FREE FIRE</div><h3>Diamond Pack</h3><div class="muted">Premium diamond package</div><div class="price">₹199</div><button class="btn buy" onclick="buy('Diamond Pack','₹199')">Buy Now</button></article>
+<article class="card"><div class="tag">SPECIAL</div><h3>Special Diamond Offer</h3><div class="muted">Limited digital offer</div><div class="price">₹299</div><button class="btn buy" onclick="buy('Special Diamond Offer','₹299')">Buy Now</button></article>
+</section>
+
+<section class="pay">
+<div class="box"><h2>Scan & Pay</h2><p class="muted">अपना UPI QR नीचे लगाएँ।</p>
+<img class="qr" src="YOUR-QR-IMAGE.png" alt="UPI QR Code">
+<p class="muted" style="text-align:center">Payment के बाद order details Telegram पर भेजें।</p></div>
+<div class="box"><h2>Need Help?</h2><p class="muted">Order या payment से जुड़ी सहायता के लिए Telegram पर संपर्क करें।</p>
+<a class="btn tg" href="https://t.me/NSG_CC" target="_blank" rel="noopener">Contact on Telegram</a></div>
+</section>
+</main>
+<footer>© 2026 KRISHAN LIVE · All rights reserved</footer>
+
+<div class="modal" id="modal"><div class="modalbox"><button class="close" onclick="closeLogin()">×</button><h2 id="modalTitle">Login</h2><input id="email" type="email" placeholder="Email"><input id="pass" type="password" placeholder="Password"><button class="btn buy" onclick="login()">Continue</button><p class="muted" style="margin-top:14px">यह front-end login है; real account security के लिए backend authentication जोड़ें।</p></div></div>
+
+<script>
+function openLogin(){document.getElementById('modal').classList.add('open')}
+function closeLogin(){document.getElementById('modal').classList.remove('open')}
+function login(){if(!email.value||!pass.value)return alert('Email और password भरें।');alert('Welcome to KRISHAN LIVE');closeLogin()}
+function buy(name,price){alert(name+' — '+price+'\\n\\nनीचे दिए QR से payment करें और Telegram पर order details भेजें।')}
+</script>
+</body>
+</html>
